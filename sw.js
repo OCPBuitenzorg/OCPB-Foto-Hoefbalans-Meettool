@@ -1,15 +1,15 @@
 // OBIE Foto-Hoefbalans Meettool — Service Worker
 // Bump CACHE_VERSION whenever the app files change so clients pick up the new version.
-const CACHE_VERSION = 'obie-hoefbalans-v1-10';
+const CACHE_VERSION = 'obie-hoefbalans-v1-11';
 const ASSETS = [
-  './index.html',
-  './manifest.json',
-  './icons/icon-192.png',
-  './icons/icon-512.png',
-  './icons/icon-192-maskable.png',
-  './icons/icon-512-maskable.png',
-  './icons/apple-touch-icon.png',
-  './icons/favicon-64.png'
+  'index.html',
+  'manifest.json',
+  'icon-192.png',
+  'icon-512.png',
+  'icon-192-maskable.png',
+  'icon-512-maskable.png',
+  'apple-touch-icon.png',
+  'favicon-64.png'
 ];
 
 async function cleanResponse(response) {
@@ -42,7 +42,7 @@ self.addEventListener('fetch', (event) => {
 
   if (request.mode === 'navigate') {
     event.respondWith(
-      caches.match('./index.html').then((cached) => cached || fetch(request))
+      caches.match('index.html').then((cached) => cached || fetch(request))
     );
     return;
   }
